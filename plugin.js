@@ -7,6 +7,12 @@ CKEDITOR.plugins.add('nbsp',
 			}
 		});
 
+		editor.addCommand('insertNarrowNbsp', {
+			exec : function(editor) {
+				editor.insertHtml('&#8239;');
+			}
+		});
+
 		editor.ui.addButton('Nbsp', {
 			label: 'Insert a non-breaking space',
 			command: 'insertNbsp',
@@ -14,5 +20,6 @@ CKEDITOR.plugins.add('nbsp',
 		});
 
 		editor.keystrokeHandler.keystrokes[CKEDITOR.SHIFT + 32 /* SPACE */] = 'insertNbsp';
+		editor.keystrokeHandler.keystrokes[CKEDITOR.SHIFT + CKEDITOR.CTRL + 32 /* SPACE */] = 'insertNarrowNbsp';
 	}
 });
